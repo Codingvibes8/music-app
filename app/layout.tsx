@@ -1,16 +1,24 @@
 import { Figtree } from "next/font/google";
-import React from "react";
+
+// import getSongsByUserId from '@/actions/getSongsByUserId';
+// import getActiveProductsWithPrices from '@/actions/getActiveProductsWithPrices';
 import Sidebar from "@/components/Sidebar";
-import "./globals.css";
-import SupabaseProvider from "@/providers/SupabaseProvider";
+// import ToasterProvider from '@/providers/ToasterProvider';
 import UserProvider from "@/providers/UserProvider";
+import ModalProvider from "@/providers/ModalProvider";
+import SupabaseProvider from "@/providers/SupabaseProvider";
+// import Player from '@/components/Player';
+import "./globals.css";
+import React from "react";
+
 const font = Figtree({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "MusicApp",
+  title: "Spotify Clone",
   description:
-    "MusicApp a Spotify clone created by Dayo using Next.js 13, Tailwind CSS and TypeScript. 🔊🎶",
+    "🎵🎧Spotify clone created by ajfm88 using Next.js 13, Tailwind CSS and TypeScript. 🔊🎶",
 };
+
 export default function RootLayout({
   children,
 }: {
@@ -21,6 +29,7 @@ export default function RootLayout({
       <body className={font.className}>
         <SupabaseProvider>
           <UserProvider>
+            <ModalProvider />
             <Sidebar>{children}</Sidebar>
           </UserProvider>
         </SupabaseProvider>
